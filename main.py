@@ -111,12 +111,15 @@ class Game:
 
         # TODO(F4): 적이 플레이어에 닿으면 그 적을 없애고 생명(self.lives)을 1 줄일 것.
         #           힌트: pygame.sprite.spritecollide
+        enemy_touch = pygame.sprite.spritecollide(self.player, self.enemies, True)
+        self.lives -= len(enemy_touch)
 
         # 화면 아래로 지나간 적은 없앨 것.
         for enemy in list(self.enemies):
             if enemy.rect.top > HEIGHT:
                 enemy.kill()
                 # TODO(F4): 적이 아래로 지나갔으니 생명을 1 줄일 것.
+                self.lives -= 1
 
         # TODO(F4): 생명이 0 이하가 되면 self.end_game() 을 실행할 것.
 
