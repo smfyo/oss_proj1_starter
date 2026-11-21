@@ -177,10 +177,12 @@ class Game:
         """게임 오버 화면. self.game_over 가 True 일 때 draw() 가 부른다."""
         # TODO(F4): 화면 가운데에 "GAME OVER" 와 이번 판 점수를 표시할 것.
         game_over_font = pygame.font.Font(None, 64)
+        self.draw_text("GAME OVER", game_over_font, WHITE, center=(WIDTH // 2, HEIGHT // 2 - 90))
+        self.draw_text(f"SCORE: {self.score}", self.font, WHITE, center=(WIDTH // 2, HEIGHT // 2 - 5))
 
-        self.draw_text("GAME OVER", game_over_font, WHITE, center=(WIDTH // 2, HEIGHT // 2 - 30))
-        self.draw_text(f"SCORE: {self.score}", self.font, WHITE, center=(WIDTH // 2, HEIGHT // 2 + 30))
         # TODO(F5): 최고 점수("HIGH SCORE: 300")와 재시작 안내("Press R to restart")도 표시할 것.
+        self.draw_text(f"HIGH SCORE: {self.high_score}", self.font, WHITE, center=(WIDTH // 2, HEIGHT // 2 + 65))
+        self.draw_text("Press R to restart", self.font, WHITE, center=(WIDTH // 2, HEIGHT // 2 + 135))
 
     # ---------------- 게임 루프 ----------------
     def step(self):
