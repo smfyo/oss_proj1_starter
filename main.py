@@ -19,7 +19,7 @@ def load_high_score():
     #           파일이 없거나 내용이 숫자가 아니면 0 을 반환할 것.
     try:
         with open(HIGHSCORE_FILE, "r", encoding="utf-8") as file:
-            return max(0, int(file.read().stripe()))
+            return max(0, int(file.read().strip()))
     except(FileNotFoundError, ValueError):
         return 0
 
