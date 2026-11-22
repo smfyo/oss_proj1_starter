@@ -174,6 +174,7 @@ class Game:
             self.draw_text(line, self.font, WHITE, center=(cx, 370 + i * 34))
         if pygame.time.get_ticks() // 500 % 2 == 0:  # 0.5초마다 깜빡임
             self.draw_text("Press SPACE to start", self.font, YELLOW, center=(cx, 540))
+        self.draw_text(f"HIGH SCORE: {self.high_score}", self.font, WHITE, center=(cx, 590))
 
     def draw_game_over(self):
         """게임 오버 화면. self.game_over 가 True 일 때 draw() 가 부른다."""
